@@ -1,0 +1,94 @@
+<form id="competenciaForm" class="form-horizontal jumbotron" [formGroup]="form" novalidate autocomplete="off">
+  <input type="hidden" id="codigo" name="codigo" formControlName="codigo">
+  <div class="form-group">
+    <label class="col-sm-3" for="codigoTotal">Código</label>
+    <div class="col-sm-9" id="codigoTotal">
+      {{competencia.codigo}}
+    </div>
+  </div>
+  <div class="form-group" *ngIf="!editar && !ver">
+    <label class="col-sm-3" for="codigo">Identificador</label>
+    <div class="col-sm-9">
+      <input type="text" id="identificador" name="identificador" class="form-control" formControlName="identificador" (onBlur)="validate()" (keyup)="comprobarCodigo()">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-sm-3" for="nombre">Nombre</label>
+    <div class="col-sm-9">
+      <input *ngIf="!ver" type="text" id="nombre" name="nombre" class="form-control" formControlName="nombre" (onBlur)="validate()">
+      <span *ngIf="ver">{{competencia.nombre}}</span>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-sm-3" for="nivel">Nivel</label>
+    <div class="col-sm-9">
+      <select *ngIf="!ver" id="nivel" name="nivel" class="form-control" formControlName="nivel" (change)="comprobarCodigo()">
+        <option *ngFor="let nivel of niveles" value="{{nivel}}">{{nivel}}</option>
+      </select>
+      <span *ngIf="ver">{{competencia.nivel}}</span>
+    </div>
+  </div>
+  <h4 style="text-align:center">Contexto Profesional</h4>
+  <div class="form-group">
+    <label class="col-sm-3" for="descripcion">Medios de Producción</label>
+    <div class="col-sm-9">
+      <textarea *ngIf="!ver" id="medios" name="medios" class="form-control" formControlName="medios" (onBlur)="validate()"></textarea>
+      <span *ngIf="ver" style="white-space:pre-wrap">{{competencia.medios}}</span>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-sm-3" for="descripcion">Productos y Resultados</label>
+    <div class="col-sm-9">
+      <textarea *ngIf="!ver" id="productos" name="productos" class="form-control" formControlName="productos" (onBlur)="validate()"></textarea>
+      <span *ngIf="ver" style="white-space:pre-wrap">{{competencia.productos}}</span>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-sm-3" for="informacion">Información utilizada o generada</label>
+    <div class="col-sm-9">
+      <textarea *ngIf="!ver" id="informacion" name="informacion" class="form-control" formControlName="informacion" (onBlur)="validate()"></textarea>
+      <span *ngIf="ver" style="white-space:pre-wrap">{{competencia.informacion}}</span>
+    </div>
+  </div>
+  <h4 style="text-align:center">Realizaciones Profesionales</h4>
+  <div class="row" *ngIf="!ver">
+    <div class="col-sm-9">
+      <input type="text" id="realizacion" class="form-control">
+    </div>
+    <div class="col-sm-3">
+      <button type="button" class="btn btn-primary" (click)="anadirRealizacion()">Añadir Realización</button>
+    </div>
+  </div>
+  <div *ngFor="let real of competencia.realizaciones; let i = index;" class="realizaciones">
+    <div class="row">
+      <div class="col-sm-2">RP{{i+1}}</div>
+      <div class="col-sm-8">{{real.title}}</div>
+      <div class="col-sm-2" *ngIf="!ver">
+        <button type="button" class="btn btn-default glyphicon glyphicon-remove" (click)="deleteRealizacion(real)"></button>
+      </div>
+    </div>
+    <div class="row" *ngIf="!ver">
+      <div class="col-sm-9">
+        <textarea type="text" class="form-control"></textarea>
+      </div>
+      <div class="col-sm-3">
+        <button type="button" class="btn btn-primary" (click)="anadirCriterio(real, $event)">Añadir Criterio</button>
+      </div>
+    </div>
+    <div class="row">
+      <h6 style="text-align:center">Criterios de Realización</h6>
+    </div>
+    <div *ngFor="let crit of real.criterios; let j = index;">
+      <div class="row criterio">
+        <div class="col-sm-2">CR{{i+1}}.{{j+1}}</div>
+        <div class="col-sm-8">{{crit}}</div>
+        <div class="col-sm-2" *ngIf="!ver">
+          <button type="button" class="btn btn-default glyphicon glyphicon-remove" (click)="deleteCriterio(real, crit)"></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="text-align:center" *ngIf="!ver">
+    <button type="submit" class="btn btn-primary" [disabled]="!form.valid">Guardar</button>
+  </div>
+</form>

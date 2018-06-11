@@ -1,0 +1,23 @@
+<div class="container">
+  <navbar></navbar>
+  <div class="row">
+    <div class="col-sm-6">
+      <h3 *ngIf="ls.title">{{ls.title}}</h3>
+    </div>
+    <div class="col-sm-6" style="text-align:right">
+      <span *ngFor="let btn of this.ls.buttons">
+        <a *ngIf="btn.href" class="btn btn-default"  href="{{btn.href}}" routerLink="{{btn.href}}" style="margin-top:20px;">{{btn.title}}</a>
+        <button type="button" *ngIf="btn.title=='Volver'" class="btn btn-default" style="margin-top:20px;" (click)="lc.back()">{{btn.title}}</button>
+      </span>
+    </div>
+  </div>
+  <div class="alert alert-success" role="alert" *ngIf="ls.success?.length > 0">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="cleanSuccess()"><span aria-hidden="true">&times;</span></button>
+    <div *ngFor="let i of ls.success">{{i}}</div>
+  </div>
+  <div class="alert alert-danger" role="alert" *ngIf="ls.errors?.length > 0">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="cleanErrors()"><span aria-hidden="true">&times;</span></button>
+    <div *ngFor="let i of ls.errors">{{i}}</div>
+  </div>
+  <router-outlet (activate)="onActivate($event)" (deactivate)="onDeactivate()"></router-outlet>
+</div>

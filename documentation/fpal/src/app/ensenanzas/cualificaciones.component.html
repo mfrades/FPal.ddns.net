@@ -1,0 +1,42 @@
+<table class="table table-striped" [mfData]="cualificaciones" #mf="mfDataTable" [mfRowsOnPage]="5">
+  <thead>
+    <tr>
+      <th>
+        <mfDefaultSorter by="codigo">Codigo</mfDefaultSorter>
+      </th>
+      <th>
+        <mfDefaultSorter by="nombre">Denominación</mfDefaultSorter>
+      </th>
+      <th>
+        <mfDefaultSorter by="familia">Familia</mfDefaultSorter>
+      </th>
+      <th>
+        <mfDefaultSorter by="nivel">Nivel</mfDefaultSorter>
+      </th>
+      <th>
+        Opciones
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let cualif of mf.data">
+      <td>{{cualif.codigo}}</td>
+      <td>{{cualif.nombre}}</td>
+      <td>{{cualif.familia}}</td>
+      <td>{{cualif.nivel}}</td>
+      <td>
+        <div class="btn-group" role="group">
+          <a class="btn btn-default glyphicon glyphicon-edit" data-toggle="tooltip" data-placement="top" data-container="body" title="Editar" href="/cualificaciones/editar/{{cualif.codigo}}" routerLink="/cualificaciones/editar/{{cualif.codigo}}"></a>
+          <a class="btn btn-default glyphicon glyphicon-remove" data-toggle="tooltip" data-placement="top" data-container="body" title="Borrar" (click)="delete(cualif)"></a>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td colspan="4">
+        <mfBootstrapPaginator [rowsOnPageSet]="[5,10,25,100]"></mfBootstrapPaginator>
+      </td>
+    </tr>
+  </tfoot>
+</table>

@@ -1,0 +1,61 @@
+<div *ngIf="canEdit" class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingTwo">
+      <h4 class="panel-title">
+        <div class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          Información del Usuario
+        </div>
+      </h4>
+    </div>
+    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+      <div class="panel-body">
+        <div class="form-horizontal">
+          <div class="form-group">
+            <label class="col-sm-3">Formacion:</label>
+            <div class="col-sm-9" style="white-space:pre-wrap">{{user.formacion}}</div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-3">Intereses:</label>
+            <div class="col-sm-9" style="white-space:pre-wrap">{{user.intereses}}</div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-3">Perspectivas:</label>
+            <div class="col-sm-9" style="white-space:pre-wrap">{{user.perspectivas}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="canEdit" class="row" style="margin-bottom:20px;">
+  <div class="col-sm-9">
+    <select class="form-control" [(ngModel)]="cualificacion">
+    <option *ngFor="let cualif of cualificaciones" [ngValue]="cualif">{{cualif.nombre}}</option>
+  </select>
+  </div>
+  <div class="col-sm-3">
+    <button type="button" class="btn btn-default" (click)="addItinerario()">AÑADIR</button>
+  </div>
+</div>
+<div>
+  <div *ngFor="let itin of itinerarios; let i = index;" class="jumbotron itinerario">
+    <div class="row">
+      <div class="col-sm-9">{{itin.cualificacionO.nombre}}</div>
+      <div class="col-sm-3">
+        <span class="btn-group" role="group">
+          <a class="btn btn-default glyphicon glyphicon-eye-open" data-toggle="tooltip" data-placement="top" data-container="body" title="Ver Cualificacion" href="/cualificaciones/ver/{{itin.cualificacionO.codigo}}" routerLink="/cualificaciones/ver/{{itin.cualificacionO.codigo}}"></a>
+          <button *ngIf="!itin.terminada && isAlumno" type="button" class="btn btn-default glyphicon glyphicon-ok" data-toggle="tooltip" data-placement="top" data-container="body" title="Terminar" (click)="end(itin)"></button>
+          <button *ngIf="!itin.terminada && !isAlumno" type="button" class="btn btn-default glyphicon glyphicon-arrow-up" data-toggle="tooltip" data-placement="top" data-container="body" title="Mover hacia Arriba" (click)="mover(itin, true)"></button>
+          <button *ngIf="!itin.terminada && !isAlumno" type="button" class="btn btn-default glyphicon glyphicon-arrow-down" data-toggle="tooltip" data-placement="top" data-container="body" title="Mover hacia Abajo" (click)="mover(itin, false)"></button>
+          <button *ngIf="!itin.terminada && !isAlumno" type="button" class="btn btn-default glyphicon glyphicon-remove" data-toggle="tooltip" data-placement="top" data-container="body" title="Borrar" (click)="delete(itin)"></button>
+        </span>
+      </div>
+    </div>
+    <div>{{itin.cualificacionO.descripcion}}</div>
+    <div>
+      <span>Añadido: {{itin.fechaAdd | date:"dd/MM/yyyy HH:mm"}}</span>
+      <span *ngIf="itin.terminada" style="margin-left:15px;">Terminado: {{itin.fechaFin | date:"dd/MM/yyyy HH:mm"}}</span>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+<div style="margin-top:50px;">
+  <h4>MENSAJES RECIBIDOS</h4>
+  <messages></messages>
+</div>
+<div *ngIf="isAlumno">
+  <h4>ITINERARIO</h4>
+  <itinerario [userId]="ls.user.userId"></itinerario>
+</div>
+<div *ngIf="!isAlumno">
+  <h4>ALUMNOS</h4>
+  <users [tipo]="Alumnos"></users>
+</div>

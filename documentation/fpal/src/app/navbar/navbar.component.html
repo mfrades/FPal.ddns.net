@@ -1,0 +1,54 @@
+<h1 *ngIf="!ls.token">FPAL</h1>
+<nav *ngIf="ls.token" class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" routerLink="/dashboard">FPAL</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <!-- <li [class.active]="title=='Usuarios'"><a href="javascript:void(0)">Usuarios</a></li> -->
+        <li [class.active]="ls.title=='Formadores' || ls.title=='Alumnos'" class="dropdown" *ngIf="perm.canAccess(['/formadores','/alumnos'])">
+          <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Usuarios <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="javascript:void(0)" routerLink="/formadores" *ngIf="perm.canAccess('/formadores')">Formadores</a></li>
+            <li><a href="javascript:void(0)" routerLink="/alumnos" *ngIf="perm.canAccess('/alumnos')">Alumnos</a></li>
+            <!-- <li role="separator" class="divider"></li> -->
+          </ul>
+        </li>
+        <li [class.active]="ls.title=='Nuevo Mensaje' || ls.title=='Recibidos' || ls.title=='Enviados'" class="dropdown">
+          <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Mensajes<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="javascript:void(0)" routerLink="/mensajes/nuevo">Nuevo</a></li>
+            <li><a href="javascript:void(0)" routerLink="/mensajes/recibidos">Recibidos</a></li>
+            <li><a href="javascript:void(0)" routerLink="/mensajes/enviados">Enviados</a></li>
+          </ul>
+        </li>
+        <li *ngIf="perm.canAccess(['/formadores','/alumnos'])" [class.active]="ls.title=='Nueva Cualificación Profesional' || ls.title=='Cualificaciones Profesionales'
+        || ls.title=='Nueva Unidad de Competencia' || ls.title=='Unidades de Competencia'" class="dropdown">
+          <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Catálogo<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="javascript:void(0)" routerLink="/cualificaciones">Cualificaciones</a></li>
+            <li><a href="javascript:void(0)" routerLink="/competencias">Competencias</a></li>
+          </ul>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <a href="javascript:void(0)" routerLink="/usuario/editar/{{ls.user.userId}}">{{ls.user.nombre}}</a>
+        </li>
+        <li><a href="javascript:void(0)" (click)="exit()">Salir</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<h3 *ngIf="title">{{title}}</h3>

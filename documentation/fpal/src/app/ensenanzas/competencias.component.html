@@ -1,0 +1,39 @@
+<table class="table table-striped" [mfData]="competencias" #mf="mfDataTable" [mfRowsOnPage]="5">
+  <thead>
+    <tr>
+      <th>
+        <mfDefaultSorter by="codigo">Codigo</mfDefaultSorter>
+      </th>
+      <th>
+        <mfDefaultSorter by="nombre">Nombre</mfDefaultSorter>
+      </th>
+      <th>
+        <mfDefaultSorter by="nivel">Nivel</mfDefaultSorter>
+      </th>
+      <th style="min-width:100px;">
+        Opciones
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let compet of mf.data">
+      <td>{{compet.codigo}}</td>
+      <td>{{compet.nombre}}</td>
+      <td>{{compet.nivel}}</td>
+      <td>
+        <div class="btn-group" role="group">
+          <a *ngIf="parent" class="btn btn-default glyphicon glyphicon-eye-open" data-toggle="tooltip" data-placement="top" data-container="body" title="Ver" href="/competencias/ver/{{compet.codigo}}" routerLink="/competencias/ver/{{compet.codigo}}"></a>
+          <a *ngIf="!parent" class="btn btn-default glyphicon glyphicon-edit" data-toggle="tooltip" data-placement="top" data-container="body" title="Editar" href="/competencias/editar/{{compet.codigo}}" routerLink="/competencias/editar/{{compet.codigo}}"></a>
+          <a *ngIf="!ls.isTipo('Alumno')" class="btn btn-default glyphicon glyphicon-remove" data-toggle="tooltip" data-placement="top" data-container="body" title="Borrar" (click)="delete(compet)"></a>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td colspan="4">
+        <mfBootstrapPaginator [rowsOnPageSet]="[5,10,25,100]"></mfBootstrapPaginator>
+      </td>
+    </tr>
+  </tfoot>
+</table>

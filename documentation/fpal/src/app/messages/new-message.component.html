@@ -1,0 +1,27 @@
+<form id="messageForm" class="form-horizontal jumbotron" [formGroup]="form" novalidate autocomplete="off">
+  <input type="hidden" id="receiverId" name="receiverId" formControlName="receiverId">
+  <div class="form-group">
+    <label class="col-sm-3" for="receiver">Destinatario</label>
+    <div class="col-sm-9">
+      <input type="text" id="receiver" name="receiver" class="form-control" formControlName="receiver">
+      <ul *ngIf="users.length">
+        <li *ngFor="let user of users" (click)="selectReceiver(user)">{{user.nombre}} {{user.apellido}}</li>
+      </ul>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-sm-3" for="subject">Asunto</label>
+    <div class="col-sm-9">
+      <input type="text" id="subject" name="subject" class="form-control" formControlName="subject">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-sm-3" for="body">Texto</label>
+    <div class="col-sm-9">
+      <textarea id="body" name="body" class="form-control" formControlName="body"></textarea>
+    </div>
+  </div>
+  <div style="text-align:center">
+    <button type="submit" class="btn btn-primary" [disabled]="!form.valid">Enviar</button>
+  </div>
+</form>

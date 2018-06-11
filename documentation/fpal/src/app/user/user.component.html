@@ -1,0 +1,70 @@
+<form id="userForm" class="form-horizontal jumbotron" [formGroup]="form" novalidate>
+  <div class="form-group">
+    <label class="col-sm-3" for="email">Email</label>
+    <div class="col-sm-9">
+      <input type="text" id="email" name="email" class="form-control" formControlName="email" (blur)="validateForm()" [attr.disabled]="soloVer ? 'disabled' : null">
+    </div>
+  </div>
+  <div class="form-group" *ngIf="!soloVer">
+    <label class="col-sm-3" for="passw">Contraseña</label>
+    <div class="col-sm-9">
+      <input type="password" id="passwd" name="passwd" class="form-control" formControlName="passwd" (blur)="validateForm()">
+    </div>
+  </div>
+  <div class="form-group" *ngIf="!soloVer">
+    <label class="col-sm-3" for="repasswd">Repita la Contraseña</label>
+    <div class="col-sm-9">
+      <input type="password" id="repasswd" name="repasswd" class="form-control" formControlName="repasswd" (blur)="validateForm()">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-sm-3" for="nombre">Nombre</label>
+    <div class="col-sm-9">
+      <input type="text" id="nombre" name="nombre" class="form-control" formControlName="nombre" (blur)="validateForm()" [attr.disabled]="soloVer ? 'disabled' : null">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-sm-3" for="apellido">Apellidos</label>
+    <div class="col-sm-9">
+      <input type="text" id="apellido" name="apellido" class="form-control" formControlName="apellido" (blur)="validateForm()" [attr.disabled]="soloVer ? 'disabled' : null">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-sm-3">Foto de Perfil</label>
+    <div class="col-sm-9">
+      <div class="columns">
+        <div class="col-sm-12" *ngIf="!soloVer">
+          <label class="col-sm-9 btn btn-default btn-file" style="width:80px;margin-right:10px">
+            Añadir<input type="file" id="foto" name="foto" class="btn btn-default hidden" (change)="fotoChange($event)" >
+          </label>
+          <button *ngIf="user && user.foto" (click)="borrarImg()" class="btn btn-danger">Borrar</button>
+        </div>
+        <div class="col-sm-12">
+          <img class="img-responsive img-thumbnail" *ngIf="user && user.foto" src="{{user.foto}}" style="max-width:200px;max-height:200px">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="form-group" *ngIf="isAlumno">
+    <label class="col-sm-3" for="formacion">Formación</label>
+    <div class="col-sm-9">
+      <textarea id="formacion" name="formacion" class="form-control" formControlName="formacion" (blur)="validateForm()" [attr.disabled]="soloVer ? 'disabled' : null"></textarea>
+    </div>
+  </div>
+  <div class="form-group" *ngIf="isAlumno">
+    <label class="col-sm-3" for="intereses">Intereses</label>
+    <div class="col-sm-9">
+      <textarea id="intereses" name="intereses" class="form-control" formControlName="intereses" (blur)="validateForm()" [attr.disabled]="soloVer ? 'disabled' : null"></textarea>
+    </div>
+  </div>
+  <div class="form-group" *ngIf="isAlumno">
+    <label class="col-sm-3" for="perspectivas">Perspectivas</label>
+    <div class="col-sm-9">
+      <textarea id="perspectivas" name="perspectivas" class="form-control" formControlName="perspectivas" (blur)="validateForm()" [attr.disabled]="soloVer ? 'disabled' : null"></textarea>
+    </div>
+  </div>
+  <div *ngIf="!soloVer" class="form-group" style="text-align: center">
+    <button type="submit" class="btn btn-default" [disabled]="!form.valid">Guardar Usuario</button>
+    <button type="button" class="btn btn-default" (click)="volver()">Cancelar</button>
+  </div>
+</form>
