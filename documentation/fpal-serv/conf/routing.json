@@ -1,0 +1,73 @@
+{
+    "/autoLogin": {
+        "GET":"login/autoLogin"
+    },
+    "/login": {
+        "POST":"login/login"
+    },
+    "/pruebas": {
+        "GET":"pruebas/pruebas"
+    },
+    "/passwd":{
+        "GET":"login/passwd"
+    },
+    "/user":{
+        "POST":"user/save",
+        "PUT":"user/save",
+        "GET":"user/get",
+        "DELETE":"user/delete"
+    },
+    "/users":{
+        "GET": "user/getAll"
+    },
+    "/user/activar":{
+        "GET": "user/activar"
+    },
+    "/messages":{
+        "GET": "messages/getAll",
+        "POST":"messages/send",
+        "DELETE":"messages/delete"
+    },
+    "/messages/leer":{
+        "GET": "messages/leer"
+    },
+    "/cualificacion":{
+        "GET": "cualificaciones/get",
+        "POST": "cualificaciones/set",
+        "PUT": "cualificaciones/set",
+        "DELETE":"cualificaciones/delete"
+    },
+    "/cualificaciones":{
+        "GET": "cualificaciones/getAll"
+    },    
+    "/competencia":{
+        "GET":"competencias/get",
+        "POST":"competencias/set",
+        "PUT":"competencias/set",
+        "DELETE":"competencias/delete"
+    },
+    "/competencias":{
+        "GET": "competencias/getAll"
+    },
+    "/itinerario":{
+        "GET": "itinerarios/get",
+        "POST": "itinerarios/set",
+        "DELETE":"itinerarios/delete"
+    },
+    "/itinerario/end":{
+        "GET": "itinerarios/end"
+    },
+    "/cualificacion/checkId":{
+        "GET": "cualificaciones/checkId"
+    },
+    "/competencia/checkId":{
+        "GET": "competencias/checkId"
+    },
+    "/user/esFormador":{
+        "GET":"user/esFormador"
+    },
+    "/test":{
+        "GET":"pruebas/test"
+    }
+            
+}

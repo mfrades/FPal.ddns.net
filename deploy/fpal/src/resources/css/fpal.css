@@ -1,0 +1,21 @@
+.itinerario:first-child {
+  background-color: #ddd;
+}
+
+.itinerario>div {
+  margin-bottom: 10px;
+}
+
+.itinerario>div:last-child {
+  margin-bottom: 0px;
+  font-size: 0.8em;
+}
+
+.itinerario .row div:first-child {
+  font-weight: bold;
+  font-size: 1.5em;
+}
+
+.itinerario .row div:last-child {
+  text-align: right;
+}

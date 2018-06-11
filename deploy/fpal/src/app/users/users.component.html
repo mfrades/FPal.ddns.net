@@ -1,0 +1,45 @@
+<table class="table table-striped" [mfData]="users" #mf="mfDataTable" [mfRowsOnPage]="5">
+  <thead>
+    <tr>
+      <th>
+        <mfDefaultSorter by="foto">Foto</mfDefaultSorter>
+      </th>
+      <th>
+        <mfDefaultSorter by="apellido">Nombre</mfDefaultSorter>
+      </th>
+      <th>
+        <mfDefaultSorter by="email">Email</mfDefaultSorter>
+      </th>
+      <th>
+        <mfDefaultSorter by="fechaAdd">Fecha Creación</mfDefaultSorter>
+      </th>
+      <th>
+        Opciones
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of mf.data">
+      <td><img class="img-responsive img-thumbnail" *ngIf="user.foto" src="{{user.foto}}" style="max-width:100px;max-height:100px"></td>
+      <td>{{user.nombre}} {{user.apellido}}</td>
+      <td>{{user.email}}</td>
+      <td>{{user.fechaAdd | date:"dd/MM/yyyy HH:mm"}}</td>
+      <td>
+        <div class="btn-group" role="group">
+          <a class="btn btn-default glyphicon glyphicon-edit" data-toggle="tooltip" data-placement="top" data-container="body" title="Editar" href="/usuario/editar/{{user.userId}}" routerLink="/usuario/editar/{{user.userId}}"></a>
+          <button *ngIf="ls.isTipo('Administrador')" class="btn btn-default glyphicon" [class.glyphicon-ok]="user.activo" [class.glyphicon-remove]="!user.activo" data-toggle="tooltip" data-placement="top" data-container="body" title="{{user.activo?'Desactivar':'Activar'}}"
+            (click)="activar(user)"></button>
+          <a *ngIf="alumnos" class="btn btn-default glyphicon glyphicon-th-list" data-toggle="tooltip" data-placement="top" data-container="body" title="Itinerario" href="/itinerario/{{user.userId}}" routerLink="/itinerario/{{user.userId}}"></a>
+          <button *ngIf="ls.isTipo('Administrador') && alumnos" type="button" class="btn btn-default glyphicon glyphicon-education" data-toggle="tooltip" data-placement="top" title="Nombrar como Formador" (click)="esFormador(user)"></button>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td colspan="4">
+        <mfBootstrapPaginator [rowsOnPageSet]="[5,10,25,100]"></mfBootstrapPaginator>
+      </td>
+    </tr>
+  </tfoot>
+</table>

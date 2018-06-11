@@ -1,0 +1,74 @@
+<form id="cualificacionForm" class="form-horizontal jumbotron" [formGroup]="form" novalidate autocomplete="off">
+  <input type="hidden" id="codigo" name="codigo" formControlName="codigo">
+  <div class="form-group">
+    <label class="col-sm-3" for="codigoTotal">Código</label>
+    <div class="col-sm-9" id="codigoTotal">
+      {{cualificacion.codigo}}
+    </div>
+  </div>
+  <div class="form-group" *ngIf="!editar && !ver">
+    <label class="col-sm-3" for="codigo">Identificador</label>
+    <div class="col-sm-9">
+      <input type="text" id="identificador" name="identificador" class="form-control" formControlName="identificador" (blur)="validateForm()" (keyup)="comprobarCodigo()">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-sm-3" for="nombre">Denominación</label>
+    <div class="col-sm-9">
+      <input *ngIf="!ver" type="text" id="nombre" name="nombre" class="form-control" formControlName="nombre" (blur)="validateForm()">
+      <span *ngIf="ver">{{cualificacion.nombre}}</span>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-sm-3" for="familia">Familia</label>
+    <div class="col-sm-9">
+      <select *ngIf="!ver" type="text" id="familia" name="familia" class="form-control" formControlName="familia" (change)="comprobarCodigo()">
+        <option *ngFor="let familia of familias" value="{{familia}}">{{familia}}</option>
+      </select>
+      <span *ngIf="ver">{{cualificacion.familia}}</span>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-sm-3" for="nivel">Nivel</label>
+    <div class="col-sm-9">
+      <select *ngIf="!ver" id="nivel" name="nivel" class="form-control" formControlName="nivel" (change)="comprobarCodigo()">
+        <option *ngFor="let nivel of niveles" value="{{nivel}}">{{nivel}}</option>
+      </select>
+      <span *ngIf="ver">{{cualificacion.nivel}}</span>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-sm-3" for="descripcion">Competencia General</label>
+    <div class="col-sm-9">
+      <textarea *ngIf="!ver" id="descripcion" name="descripcion" class="form-control" formControlName="descripcion"></textarea>
+      <span *ngIf="ver" style="white-space:pre-wrap">{{cualificacion.descripcion}}</span>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-sm-3" for="descripcion">Entorno Profesional</label>
+    <div class="col-sm-9">
+      <textarea *ngIf="!ver" id="entorno" name="entorno" class="form-control" formControlName="entorno"></textarea>
+      <span *ngIf="ver" style="white-space:pre-wrap">{{cualificacion.entorno}}</span>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-sm-3">Unidades de Competencias</label>
+    <div class="col-sm-9">
+      <div>
+        <div class="col-sm-9">
+          <input type="text" id="competBuscador" class="form-control">
+          <ul *ngIf="competencias.length">
+            <li *ngFor="let compet of competencias" (click)="selectCompetencia(compet)">{{compet.nombre}}</li>
+          </ul>
+        </div>
+        <div class="col-sm-3">
+          <button *ngIf="!ver" type="button" class="btn btn-default" (click)="addCompetencia()">AÑADIR</button>
+        </div>
+      </div>
+      <competencias [competencias]="cualificacion.competencias" [parent]="this" (deleteEvent)="deleteCompetencia($event)"></competencias>
+    </div>
+  </div>
+  <div style="text-align:center" *ngIf="!ver">
+    <button type="submit" class="btn btn-primary" [disabled]="!form.valid">Guardar</button>
+  </div>
+</form>

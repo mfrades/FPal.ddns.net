@@ -1,0 +1,39 @@
+<table class="table" [mfData]="messages" #mf="mfDataTable" [mfRowsOnPage]="5">
+  <thead>
+    <tr>
+      <th>
+        <mfDefaultSorter *ngIf="!enviados" by="sender">Usuario</mfDefaultSorter>
+        <mfDefaultSorter *ngIf="enviados" by="receiver">Usuario</mfDefaultSorter>
+      </th>
+      <th>
+        <mfDefaultSorter by="subject">Mensaje</mfDefaultSorter>
+      </th>
+      <th>
+        <mfDefaultSorter by="fechaAdd">Fecha</mfDefaultSorter>
+      </th>
+      <th>
+        Opciones
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let message of mf.data" [class.active]="message.leido">
+      <td *ngIf="!enviados">{{message.sender}}</td>
+      <td *ngIf="enviados">{{message.receiver}}</td>
+      <td [class.messageSubject]="!message.show" (click)="show(message)">{{message.subject}} <br><span [class.messageBody]="message.show">{{message.body}}</span></td>
+      <td>{{message.fechaAdd | date:"dd/MM/yyyy HH:mm"}}</td>
+      <td>
+        <div class="btn-group" role="group">
+          <button class="btn btn-default glyphicon glyphicon-remove" data-toggle="tooltip" data-placement="top" data-container="body" title="Borrar" (click)="delete(message)"></button>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td colspan="4">
+        <mfBootstrapPaginator [rowsOnPageSet]="[5,10,25,100]"></mfBootstrapPaginator>
+      </td>
+    </tr>
+  </tfoot>
+</table>

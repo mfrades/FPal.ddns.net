@@ -1,0 +1,20 @@
+ul {
+  border: 1px solid rgb(204, 204, 204);
+  border-radius: 5px;
+  list-style-type: none;
+  background-color: white;
+  padding: 0;
+}
+
+ul li {
+  cursor: pointer;
+  padding: 5px 20px;
+}
+
+ul li:hover {
+  background-color: rgb(204, 204, 204);
+}
+
+textarea {
+  resize: vertical;
+}

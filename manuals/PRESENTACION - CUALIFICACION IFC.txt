@@ -1,0 +1,164 @@
+CUALIFICACIÓN PROFESIONAL:  
+Desarrollo de aplicaciones con tecnologías web
+Familia Profesional: Informática y Comunicaciones
+Nivel:   3
+Código:   IFC154_3
+Estado:   BOE
+Publicación:   Orden PRE/1636/2015
+Referencia Normativa:  RD 1087/2005
+Competencia general
+Desarrollar documentos y componentes software que constituyan aplicaciones informáticas en entornos
+distribuidos utilizando tecnologías Web, partiendo de una especificación técnica ya elaborada,
+realizando, además, la verificación, documentación e implantación de los mismos.
+Unidades de competencia
+UC0491_3: Desarrollar elementos software en el entorno cliente
+UC0492_3: Desarrollar elementos software en el entorno servidor
+UC0493_3: Implementar, verificar y documentar aplicaciones web en entornos internet, intranet y
+extranet
+Entorno Profesional
+Ámbito Profesional
+Desarrolla su actividad profesional en el departamento de informática dedicado al desarrollo de
+aplicaciones con tecnologías Web, en entidades de naturaleza pública o privada, empresas de tamaño
+pequeño/mediano/grande o microempresas, tanto por cuenta propia como ajena, con independencia
+de su forma jurídica. Desarrolla su actividad dependiendo, en su caso, funcional y/o jerárquicamente de
+un superior. Puede tener personal a su cargo en ocasiones, por temporadas o de forma estable. En el
+desarrollo de la actividad profesional se aplican los principios de accesibilidad universal de acuerdo con
+la normativa aplicable.
+
+
+Sectores Productivos
+Se ubica en el sector servicios, en el subsector del análisis, diseño y construcción de aplicaciones
+informáticas con tecnologías Web, así como en cualquier otro sector que utilice sistemas informáticos
+para su gestión o que realice su proceso de negocio a través de Internet.
+
+
+Ocupaciones y puestos de trabajo relevantes
+Los términos de la siguiente relación de ocupaciones y puestos de trabajo se utilizan con carácter
+genérico y omnicomprensivo de mujeres y hombres.
+ Programadores Web
+ Programadores multimedia
+
+**************************************COMPETENCIAS PROFESIONALES 
+Desarrollar elementos software en el entorno cliente
+Nivel: 3
+Código: UC0491_3
+
+RP1: Desarrollar documentos estáticos y dinámicos con las herramientas de
+programación software para ser procesados en el entorno cliente según el diseño
+especificado.
+CR1.1 Los documentos estáticos y dinámicos a realizar se desarrollan de acuerdo con las
+especificaciones recibidas del diseño y atendiendo a la política de seguridad de la organización.
+CR1.2 La codificación de los documentos se realiza teniendo en cuenta las distintas técnicas de
+desarrollo y el dispositivo del entorno cliente (equipo de sobremesa, dispositivos móviles, entre
+otros), con lenguajes de marcado y estándares de desarrollo software.
+CR1.3 Las herramientas de programación software se utilizan para conseguir la codificación de
+los documentos sin errores y que los documentos sean procesados en el entorno cliente.
+CR1.4 Los errores en los documentos realizados se detectan y corrigen utilizando las
+herramientas de depuración.
+CR1.5 Los documentos desarrollados se prueban para verificar que cumplen las
+funcionalidades especificadas en el diseño.
+CR1.6 Las herramientas de control de versiones centralizadas o distribuidas se utilizan para
+garantizar el control de cambios en el software, facilitando el desarrollo y las pruebas de las
+modificaciones relativas a nuevas funcionalidades y corrección de errores.
+CR1.7 La documentación se realiza siguiendo los patrones, normas y procedimientos
+establecidos en el diseño.
+
+RP2: Desarrollar componentes software en el entorno cliente que permitan cumplir
+los objetivos del diseño según las especificaciones dadas.
+CR2.1 El desarrollo del componente se realiza de acuerdo con las especificaciones recibidas del
+diseño y atendiendo a la política de seguridad de la organización.
+CR2.2 La lógica de la aplicación se interpreta correctamente identificando los elementos
+necesarios para codificar los componentes.
+CR2.3 La codificación de los componentes se realiza utilizando las distintas técnicas de
+programación estructurada y estándares de desarrollo software.
+CR2.4 El código del componente software se desarrolla proporcionando una interfaz en
+condiciones de usabilidad, accesibilidad y ergonomía según las especificaciones de diseño y las
+normas de la organización.
+CR2.5 Los errores en los componentes realizados se detectan y corrigen utilizando
+herramientas de depuración.
+CR2.6 Los componentes desarrollados se prueban para verificar que cumplen los objetivos
+especificados en el diseño.
+
+Contexto profesional
+Medios de producción
+Equipos informáticos y periféricos. Sistemas operativos y parámetros de configuración. Herramientas
+ofimáticas. Herramientas: de desarrollo rápido, de maquetación, gráficas y de animación. Máquinas
+virtuales. Navegadores. Protocolos de comunicación. Entornos de desarrollo integrados  ‐  IDEs  ‐ 
+multilenguaje. Herramientas multimedia. Herramientas de depuración y pruebas. Componentes
+software ya desarrollados y/o distribuidos por empresas informáticas. Servidores Web. Sistemas de
+seguridad. Motores de bases de datos para utilizar, en entorno de pruebas. Entornos de desarrollo para
+aplicaciones locales con tecnología Web ‐ RIA ‐. Framework de diseño ‐ tipo Bootstrap ‐. Herramientas
+de control de versiones ‐ GIT ‐.
+
+Productos y resultados
+Documentos estáticos y dinámicos cuyo contenido es código fuente para ser interpretado. Interfaces
+gráficas de usuarios. Documentación asociada a los componentes desarrollados.
+
+Información utilizada o generada
+Diseño y especificaciones de la aplicación. Visión global del sistema a realizar, entregar y explotar.
+Manuales de uso y funcionamiento de los sistemas informáticos. Manuales de funcionamiento del
+software. Manuales de las herramientas de desarrollo utilizadas. Documentación de cursos de
+formación. Documentación de explotación del entorno cliente. Soportes técnicos de asistencia.
+Normativa aplicable en materia de propiedad intelectual y los derechos de autor (Copyright).
+Documentación asociada a los componentes desarrollados. Manuales de usabilidad. Plantillas de
+trabajo. Especificaciones del diseño gráfico corporativo.
+
+Desarrollar elementos software en el entorno servidor
+Nivel: 3
+Código: UC0492_3
+
+RP1: Desarrollar componentes software en el entorno servidor cumpliendo los
+objetivos del diseño según las especificaciones dadas para completar la
+aplicación Web.
+CR1.1 El código del componente software se desarrolla utilizando lenguajes que permiten la
+consecución de las funcionalidades indicadas en las especificaciones de desarrollo.
+CR1.2 El componente se codifica mediante técnicas de desarrollo estándares a partir de
+patrones de diseño para obtener, si es posible, elementos reutilizables procurando la máxima
+portabilidad según las normas de la organización.
+CR1.3 El componente se codifica con las herramientas, el formato y la documentación del
+código indicadas en las normas de programación.
+CR1.4 La interfaz del componente se define y documenta con claridad, asegurando la
+integración en el sistema.
+CR1.5 El componente desarrollado se somete a las baterías de pruebas necesarias en un
+entorno de ejecución estandarizado con las herramientas de depuración adecuadas para
+asegurar su correcto funcionamiento según las especificaciones de seguridad y calidad de la
+organización.
+CR1.6 La creación y gestión de usuarios, roles y perfiles se realiza para atender las peticiones
+relacionadas con el acceso al componente software en el servidor, siguiendo especificaciones
+recibidas y según necesidades de la organización.
+CR1.7 Los componentes software del servidor a los que se accede desde el entorno cliente se
+configuran para garantizar que sólo pueden acceder a ellos quien debe, siguiendo las guías y
+procedimientos establecidos y atendiendo a la política de seguridad de la organización.
+
+RP2: Manipular interfaces de accesos a informaciones almacenadas en bases de datos
+u otras estructuras para integrar contenidos en la lógica de la aplicación Web
+según las especificaciones dadas.
+CR2.1 Los componentes se desarrollan incluyendo funcionalidades de conexión con bases de
+datos u otras estructuras según las especificaciones dadas y utilizando patrones de desarrollo
+para su posible reutilización.
+CR2.2 Los datos se manipulan por medio de las herramientas que provee el sistema según
+especificaciones de diseño.
+CR2.3 La consulta y manipulación de datos se realiza utilizando lenguajes de definición y
+manipulación de datos estándares según las estipulaciones de diseño.
+CR2.4 Las conexiones con los sistemas gestores de bases de datos se configuran siguiendo las
+pautas suministradas por la organización.
+
+Contexto profesional
+Medios de producción
+Equipos informáticos y periféricos. Sistemas operativos y parámetros de configuración. Herramientas
+ofimáticas. Herramientas de desarrollo y depuración. Componentes de terceros. Gestores de protocolos.
+Líneas de comunicaciones. Servidores Web. Servidores de aplicaciones. Sistemas gestores de bases de
+datos. Herramientas de transferencia de archivos (sincronización de contenidos). Máquinas virtuales.
+Navegadores actuales, y de nueva concepción tecnológica. Sistemas de seguridad. Herramientas de
+control de cambios. Herramientas de control de versiones. Herramientas SOA.
+
+Productos y resultados
+Código fuente de componentes software. Código ejecutable de componentes software. Documentos
+estáticos y dinámicos cuyo contenido es código fuente para ser interpretado. Componentes propios de
+la capa servidora. Documentación del desarrollo realizado.
+
+Información utilizada o generada
+Visión global del sistema a realizar, entregar y explotar. Manuales de uso y funcionamiento de los
+sistemas informáticos. Manuales de funcionamiento del software. Manuales de los lenguajes de
+programación utilizados. Materiales de cursos de formación. Diseño técnico definido. Soportes técnicos
+de asistencia. Plantillas de trabajo. Documentos de desarrollo de los componentes realizados.
